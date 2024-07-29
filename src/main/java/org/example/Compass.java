@@ -8,14 +8,20 @@ public class Compass {
     }
 
     enum Direction{
-         left,
-        right
+          left,
+          right
     }
 
     private Point point;
 
     public Compass(Point point) {
         this.point = point;
+    }
+
+
+    public Point rotate(Point point,Direction direction){
+
+        return null;
     }
 
 
