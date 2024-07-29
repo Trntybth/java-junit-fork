@@ -3,7 +3,7 @@ package org.example;
 public class Compass {
 
      enum Point {
-        north, south,west,east
+        north, south, west, east
 
     }
 
@@ -14,9 +14,9 @@ public class Compass {
 
     private Point point;
 
-    public Compass(Point point) {
+        /*    public Compass(Point point) {
         this.point = point;
-    }
+    }*/
 
 
     public Point rotate(Point point,Direction direction){
