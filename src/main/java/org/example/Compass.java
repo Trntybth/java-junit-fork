@@ -3,7 +3,7 @@ package org.example;
 public class Compass {
 
      enum Point {
-        north, south, west, east
+        NORTH, EAST, SOUTH, WEST
 
     }
 
@@ -12,14 +12,12 @@ public class Compass {
           right
     }
 
-    private Point point;
 
-        /*    public Compass(Point point) {
-        this.point = point;
-    }*/
+    public Point rotate(Point point, Direction direction){
 
+        // create list of N E S W values
+        // iterate over values, return array iteration plus 1
 
-    public Point rotate(Point point,Direction direction){
 
         return null;
     }

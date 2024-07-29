@@ -18,12 +18,12 @@ class CompassTest {
     @DisplayName("Test rotate method works")
 
     void checkRotatePointCorrectlyEast() {
-        Compass.Point initialPointNorth = Compass.Point.north; // initialise point north to variable
+        Compass.Point initialPointNorth = Compass.Point.NORTH; // initialise point north to variable
         Compass.Direction directionToRotate = Compass.Direction.right; // initialise direction right to variable
 
         Compass.Point resultPoint = compass.rotate(initialPointNorth, directionToRotate); //rotate the point - this won't work yet
 
-        Compass.Point expectedPoint = Compass.Point.east;
+        Compass.Point expectedPoint = Compass.Point.EAST;
         assertEquals(expectedPoint, resultPoint, "The rotate method should correctly change NORTH to EAST when rotating RIGHT.");
 
     }
@@ -37,17 +37,18 @@ class CompassTest {
         Compass.Direction directionToRotate = Compass.Direction.right; // initialise direction right to variable
 
         // results of rotating (hopefully)
-        Compass.Point northRotateRightResult = compass.rotate(Compass.Point.north, directionToRotate); //rotate the point - this won't work yet
-        Compass.Point eastRotateRightResult = compass.rotate(Compass.Point.east, directionToRotate);
-        Compass.Point southRotateRightResult = compass.rotate(Compass.Point.south, directionToRotate);
-        Compass.Point westRotateRightResult = compass.rotate(Compass.Point.west, directionToRotate);
+        //Compass.Point is saying the variable will hold a Compass.Point enum result, as opposed to String, int, etc.
+        Compass.Point northRotateRightResult = compass.rotate(Compass.Point.NORTH, directionToRotate); //rotate the point - this won't work yet
+        Compass.Point eastRotateRightResult = compass.rotate(Compass.Point.EAST, directionToRotate);
+        Compass.Point southRotateRightResult = compass.rotate(Compass.Point.SOUTH, directionToRotate);
+        Compass.Point westRotateRightResult = compass.rotate(Compass.Point.WEST, directionToRotate);
 
 
         assertAll( // (expected thing, result actual thing)
-                () -> assertEquals(Compass.Point.east, northRotateRightResult, "Passed north, should return east "),
-                () -> assertEquals(Compass.Point.south, eastRotateRightResult, "Passed east, should return south"),
-                () -> assertEquals(Compass.Point.west, southRotateRightResult, "Passed south, should return west"),
-                () -> assertEquals(Compass.Point.north, westRotateRightResult, "Passed west, should return north")
+                () -> assertEquals(Compass.Point.EAST, northRotateRightResult, "Passed north, should return east "),
+                () -> assertEquals(Compass.Point.SOUTH, eastRotateRightResult, "Passed east, should return south"),
+                () -> assertEquals(Compass.Point.WEST, southRotateRightResult, "Passed south, should return west"),
+                () -> assertEquals(Compass.Point.NORTH, westRotateRightResult, "Passed west, should return north")
         );
     }
 
