@@ -29,9 +29,9 @@ class CompassTest {
     }
 
     @Test
-    @DisplayName("Test rotate changes point correctly")
+    @DisplayName("Test rotate changes RIGHT point correctly")
 
-    void checkRotatePointCorrectly() {
+    void checkRotatePointRightCorrectly() {
 
 
         Compass.Direction directionToRotate = Compass.Direction.right; // initialise direction right to variable
@@ -52,4 +52,26 @@ class CompassTest {
         );
     }
 
+    @Test
+    @DisplayName("Test rotate changes LEFT point correctly")
+    void checkRotatePointLeftCorrectly() {
+
+
+        Compass.Direction directionToRotate = Compass.Direction.left; // initialise direction right to variable
+
+        // results of rotating LEFT (hopefully)
+        //Compass.Point is saying the variable will hold a Compass.Point enum option (holds NORTH e.t.c)
+        Compass.Point northRotateLeftResult = compass.rotate(Compass.Point.NORTH, directionToRotate); //rotate the point - this won't work yet
+        Compass.Point eastRotateLeftResult = compass.rotate(Compass.Point.EAST, directionToRotate);
+        Compass.Point southRotateLeftResult = compass.rotate(Compass.Point.SOUTH, directionToRotate);
+        Compass.Point westRotateLeftResult = compass.rotate(Compass.Point.WEST, directionToRotate);
+
+
+        assertAll( // (expected thing, result actual thing)
+                () -> assertEquals(Compass.Point.WEST, northRotateLeftResult, "Passed north, should return west "),
+                () -> assertEquals(Compass.Point.NORTH, eastRotateLeftResult, "Passed east, should return north"),
+                () -> assertEquals(Compass.Point.EAST, southRotateLeftResult, "Passed south, should return east"),
+                () -> assertEquals(Compass.Point.SOUTH, westRotateLeftResult, "Passed west, should return south")
+        );
+    }
 }
